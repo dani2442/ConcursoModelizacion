@@ -3,7 +3,7 @@
 /*
 Project Hierarchy
 
-
+- Config
 - NeuralNet
 	- Layer
 		- FullyConnected
@@ -18,10 +18,8 @@ Project Hierarchy
 	- Optimizers
 		- SGD (Stochastic Gradient Descent)
 
--Random
--Matrix
-
-
+- Random
+- Matrix
 
 */
 
