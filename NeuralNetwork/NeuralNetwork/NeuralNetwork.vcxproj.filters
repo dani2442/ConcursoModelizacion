@@ -14,4 +14,89 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FullyConnected.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Convolution.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pooling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SGD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegressionMSE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Activation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sigmoid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReLU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Softmax.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NeuralNet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FullyConnected.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Convolution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pooling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SGD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegressionMSE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Activation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sigmoid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReLU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Softmax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
