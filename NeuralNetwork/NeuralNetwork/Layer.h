@@ -1,12 +1,16 @@
 #pragma once
 #include "Config.h"
 #include "Random.h"
-#include "Matrix.h"
 #include "Optimizer.h"
+#include <Eigen/Core>
 
 class Layer
 {
-	Layer(const int in_size,const int out_size){}
+protected:
+	const int in_size, out_size;
+
+public:
+	Layer(const int in_size,const int out_size):in_size(in_size),out_size(out_size){}
 
 	virtual void init(const Scalar& mu, const Scalar& sigma, RNG& rng) = 0;
 	virtual void forward(const Matrix& previous_layer) = 0;

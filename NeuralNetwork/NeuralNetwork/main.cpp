@@ -1,32 +1,9 @@
-#include <iostream>
+#include "Config.h"
+#include "NeuralNet.h"
 
-/*
-Project Hierarchy
-
-- Config
-- NeuralNet
-	- Layer
-		- FullyConnected
-		- Convolution
-		- Pooling
-	- Activation (functions)
-		- Sigmoid 
-		- Tanh
-		- Softmax
-		- ReLU
-	- Output
-	- Optimizers
-		- SGD (Stochastic Gradient Descent)
-
-- Random
-- Matrix
-
-*/
-
-
-
-typedef double Scalar;
+#include <Eigen/Core>
+#include <unsupported/Eigen/CXX11/Tensor>
 
 int main() {
-	std::cout << "hello world";
+	Eigen::Tensor<Scalar,3>a(1, 2, 3);
 }

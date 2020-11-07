@@ -1,4 +1,5 @@
 #pragma once
+#include "Config.h"
 class RNG
 {
 private:
@@ -44,5 +45,24 @@ public:
     {
         m_rand = next_long_rand(m_rand);
         return double(m_rand) / double(m_max);
+    }
+
+    void set_normal_random(Scalar* arr, const int n, const Scalar& mu = Scalar(0), const Scalar& sigma = Scalar(1))
+    {
+        // For simplicity we use Box-Muller transform to generate normal random variates
+        const double two_pi = 6.283185307179586476925286766559;
+        for (int i = 0; i < n - 1; i += 2)
+        {
+            const double t1 = sigma * std::sqrt(-2 * std::log(rand()));
+            const double t2 = two_pi * rand();
+            arr[i] = t1 * std::cos(t2) + mu;
+            arr[i + 1] = t1 * std::sin(t2) + mu;
+        }
+        if (n % 2 == 1)
+        {
+            const double t1 = sigma * std::sqrt(-2 * std::log(rand()));
+            const double t2 = two_pi * rand();
+            arr[n - 1] = t1 * std::cos(t2) + mu;
+        }
     }
 };
