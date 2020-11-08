@@ -9,3 +9,5 @@ typedef Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> Matrix;
 
 typedef Vector::ConstAlignedMapType ConstAlignedMapVec;
 typedef Vector::AlignedMapType AlignedMapVec;
+
+typedef Eigen::Array<Scalar, 1, Eigen::Dynamic> RowArray;

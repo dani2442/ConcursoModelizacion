@@ -6,7 +6,7 @@ class FullyConnected: public Layer
 {
 	Matrix W,d_W;
 	Vector B,d_B;
-	Matrix A, Z, D_in;
+	Matrix A, Z, d_in;
 
 	FullyConnected(const int in_size,const int out_size):Layer(in_size,out_size){}
 
