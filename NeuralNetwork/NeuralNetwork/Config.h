@@ -2,6 +2,8 @@
 #include <Eigen/Core>
 
 // Number type used in Neural Network
+typedef unsigned int u_int;
+
 typedef double Scalar;
 
 typedef Eigen::Matrix<Scalar, Eigen::Dynamic, 1> Vector;

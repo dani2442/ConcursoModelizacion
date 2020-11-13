@@ -145,11 +145,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Activation.h" />
+    <ClInclude Include="AveragePooling.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Convolution.h" />
     <ClInclude Include="FullyConnected.h" />
     <ClInclude Include="internal.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="MaxPooling.h" />
     <ClInclude Include="NeuralNet.h" />
     <ClInclude Include="Optimizer.h" />
     <ClInclude Include="Output.h" />

@@ -3,6 +3,7 @@
 #include "Random.h"
 #include "Optimizer.h"
 #include <Eigen/Core>
+#include <string>
 
 class Layer
 {
@@ -19,3 +20,8 @@ public:
 	virtual void update(Optimizer& opt) = 0;
 };
 
+
+enum ModeLayer
+{
+	Valid=0, Same=1, Full=2
+};

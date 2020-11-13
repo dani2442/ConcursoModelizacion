@@ -34,7 +34,7 @@ class FullyConnected: public Layer
 
 	void backward(const Matrix& previous_layer, const Matrix& next_layer) {
 		const int s_batch = previous_layer.cols();
-		Activation::aply_jacobian(Z, A, next_layer, Z);
+		Activation::aply_jacobian(Z, A, next_layer, Z); // We store d_Z in Z becuase we will not use it
 		d_W.noalias() = previous_layer * Z.transpose() / s_batch;
 		d_B.noalias() = Z.rowwise().mean();
 
