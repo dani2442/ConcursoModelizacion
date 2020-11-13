@@ -8,7 +8,7 @@ private:
 	Matrix d_in;
 public:
 	void evaluate(const Matrix& previous_layer, const Matrix& target) {
-		const int s_batch = previous_layer.cols(),s_output=previous_layer.rows();
+		const __int64 s_batch = previous_layer.cols(),s_output=previous_layer.rows();
 		d_in.resize(s_output, s_batch);
 		d_in.noalias() = previous_layer - target;
 	}
