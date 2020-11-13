@@ -11,6 +11,7 @@ protected:
 	const int in_size, out_size;
 
 public:
+	Layer() :in_size(-1), out_size(-1) {}
 	Layer(const int in_size,const int out_size):in_size(in_size),out_size(out_size){}
 
 	virtual void init(const Scalar& mu, const Scalar& sigma, RNG& rng) = 0;

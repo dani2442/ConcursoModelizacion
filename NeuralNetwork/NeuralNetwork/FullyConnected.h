@@ -4,11 +4,13 @@
 template<typename Activation>
 class FullyConnected: public Layer
 {
+private:
 	Matrix W,d_W;
 	Vector B,d_B;
 	Matrix A, Z, d_in;
 
-	FullyConnected(const int in_size,const int out_size):Layer(in_size,out_size){}
+public:
+	FullyConnected(const int& in_size,const int& out_size):Layer(in_size,out_size){}
 
 	void init(const Scalar& mu, const Scalar& sigma, RNG& rng) {
 		W.resize(in_size, out_size);
@@ -20,7 +22,7 @@ class FullyConnected: public Layer
 		rng.set_normal_random(B.data(), B.size(), mu, sigma);
 	}
 	void forward(const Matrix& previous_layer){
-		const int s_batch=previous_layer.cols(); // Batch size
+		const __int64 s_batch=previous_layer.cols(); // Batch size
 
 		// Z=W^T*X+B
 		Z.resize(out_size, s_batch);
@@ -33,8 +35,8 @@ class FullyConnected: public Layer
 	}
 
 	void backward(const Matrix& previous_layer, const Matrix& next_layer) {
-		const int s_batch = previous_layer.cols();
-		Activation::aply_jacobian(Z, A, next_layer, Z); // We store d_Z in Z becuase we will not use it
+		__int64 s_batch = previous_layer.cols();
+		Activation::apply_jacobian(Z, A, next_layer, Z); // We store d_Z in Z becuase we will not use it
 		d_W.noalias() = previous_layer * Z.transpose() / s_batch;
 		d_B.noalias() = Z.rowwise().mean();
 

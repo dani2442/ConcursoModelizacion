@@ -47,7 +47,7 @@ public:
         return double(m_rand) / double(m_max);
     }
 
-    void set_normal_random(Scalar* arr, const int n, const Scalar& mu = Scalar(0), const Scalar& sigma = Scalar(1))
+    void set_normal_random(Scalar* arr, const __int64 n, const Scalar& mu = Scalar(0), const Scalar& sigma = Scalar(1))
     {
         // For simplicity we use Box-Muller transform to generate normal random variates
         const double two_pi = 6.283185307179586476925286766559;

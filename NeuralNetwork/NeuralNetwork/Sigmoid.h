@@ -2,6 +2,7 @@
 #include "Activation.h"
 class Sigmoid: public Activation 
 {
+public:
 	static void activate(const Matrix& Z, Matrix& A) {
 		A.array() = Scalar(1) / (Scalar(1) + (-Z.array()).exp());
 	}

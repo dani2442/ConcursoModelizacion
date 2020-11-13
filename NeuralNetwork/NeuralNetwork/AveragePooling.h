@@ -8,7 +8,7 @@ class AveragePooling: public Layer
 {
 private:
 	ModeLayer mode;
-	u_int s_x, s_y, s_z, ch;
+	const u_int s_x, s_y, s_z, ch;
 
 	Eigen::Tensor<Scalar,4> Z;
 	Eigen::Tensor<Scalar, 4> A;
@@ -17,19 +17,12 @@ private:
 
 public:
 	AveragePooling(u_int size_x, u_int size_y, u_int size_z, u_int channels, u_int stride,std::string padding="valid") :
-		Layer(), s_x(size_x),s_y(size_y),s_z(size_z),ch(channels)
+		s_x(size_x),s_y(size_y),s_z(size_z),ch(channels)
 	{
-		switch (padding)
-		{
-		case("valid"):
-			mode = ModeLayer::Valid; break;
-		case("same"):
-			mode = ModeLayer::Same; break;
-		case("full"):
-			mode = ModeLayer::Full; break;
-		default:
-			throw "Mode Layer not valid";
-		}
+		if (padding == "valid") { mode = ModeLayer::Valid; }
+		else if (padding == "same") { mode = ModeLayer::Same; }
+		else if (padding == "full") { mode = ModeLayer::Full; }
+		else { throw "Mode Layer not valid"; }
 	}
 
 
@@ -37,9 +30,9 @@ public:
 
 	}
 	virtual void forward(const Matrix& previous_layer) {
-		Eigen::TensorMap<Scalar, 4> t_previous_layer(previous_layer.data(),previous_layer.size());
+		//Eigen::TensorMap<Scalar, 4> t_previous_layer(previous_layer.data(),previous_layer.size());
 
-		t_previous_layer.
+		
 	}
 	virtual void backward(const Matrix& previous_layer, const Matrix& next_layer) {}
 	virtual const Matrix& get_backward_data() const {}

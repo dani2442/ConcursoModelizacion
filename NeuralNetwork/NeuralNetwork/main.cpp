@@ -59,7 +59,7 @@ int main() {
 	a(1, 1, 2) = 112;
 	//Eigen::array<int, 3> start = { 0,0,0 }, end = { 1,1,0 };
 	//std::cout << a.slice(start, end);
-	std::cout << Eigen::Map < Eigen::Matrix<int, 2, 6>>(a.data());
+	//std::cout << Eigen::Map < Eigen::Matrix<int, 2, 6>>(a.data());
 	getchar();
 	
 	

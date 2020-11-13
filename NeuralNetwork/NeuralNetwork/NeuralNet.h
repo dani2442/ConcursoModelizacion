@@ -17,6 +17,7 @@ class NeuralNet
 private:
 	std::vector<Layer*> layers;
 
+public:
 
 	void add(Layer* layer) {
 		layers.push_back(layer);
