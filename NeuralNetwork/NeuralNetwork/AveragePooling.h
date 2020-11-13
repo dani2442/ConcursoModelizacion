@@ -13,8 +13,6 @@ private:
 	Eigen::Tensor<Scalar,4> Z;
 	Eigen::Tensor<Scalar, 4> A;
 
-	Eigen::Tensor<u_int, 4> Loc;
-
 	Eigen::Tensor<Scalar, 4> d_in;
 
 public:
@@ -38,7 +36,11 @@ public:
 	virtual void init(const Scalar& mu, const Scalar& sigma, RNG& rng) {
 
 	}
-	virtual void forward(const Matrix& previous_layer) {}
+	virtual void forward(const Matrix& previous_layer) {
+		Eigen::TensorMap<Scalar, 4> t_previous_layer(previous_layer.data(),previous_layer.size());
+
+		t_previous_layer.
+	}
 	virtual void backward(const Matrix& previous_layer, const Matrix& next_layer) {}
 	virtual const Matrix& get_backward_data() const {}
 	virtual void update(Optimizer& opt) {}

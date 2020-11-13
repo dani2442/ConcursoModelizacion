@@ -37,9 +37,9 @@ public:
 
 
 	virtual void init(const Scalar& mu, const Scalar& sigma, RNG& rng) {
-		W.resize(size_x, size_y, size_z, channels);
-		dW.resize(size_x, size_y, size_z, channels);
-		B.resize()
+		W.resize(s_x, s_y, s_z, ch);
+		dW.resize(s_x, s_y, s_z, ch);
+		B.resize();
 	}
 	virtual void forward(const Matrix& previous_layer) {}
 	virtual void backward(const Matrix& previous_layer, const Matrix& next_layer) {}
