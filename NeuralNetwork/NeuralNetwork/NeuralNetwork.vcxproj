@@ -127,21 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Activation.cpp" />
-    <ClCompile Include="Convolution.cpp" />
-    <ClCompile Include="FullyConnected.cpp" />
-    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="NeuralNet.cpp" />
-    <ClCompile Include="Optimizer.cpp" />
-    <ClCompile Include="Output.cpp" />
-    <ClCompile Include="Pooling.cpp" />
-    <ClCompile Include="Random.cpp" />
-    <ClCompile Include="RegressionMSE.cpp" />
-    <ClCompile Include="ReLU.cpp" />
-    <ClCompile Include="SGD.cpp" />
-    <ClCompile Include="Sigmoid.cpp" />
-    <ClCompile Include="Softmax.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Activation.h" />
@@ -149,7 +135,6 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="Convolution.h" />
     <ClInclude Include="FullyConnected.h" />
-    <ClInclude Include="internal.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="MaxPooling.h" />
     <ClInclude Include="NeuralNet.h" />
