@@ -5,8 +5,10 @@
 // Stockastic Gradient Descent
 class SGD: public Optimizer
 {
-public:
+private:
 	Scalar l_rate; // Learning rate
+public:
+	
 	SGD(Scalar l_rate=0.01):l_rate(l_rate){}
 
 	void update(ConstAlignedMapVec& dvec, AlignedMapVec& vec) {

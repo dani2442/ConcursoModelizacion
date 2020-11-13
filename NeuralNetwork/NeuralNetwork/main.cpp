@@ -38,6 +38,8 @@ int main() {
 	Layer* l1 = new Convolution<ReLU>(12, 3, 4, 5, 6, "valid");
 	Layer* l2 = new FullyConnected<Sigmoid>(12, 4);
 	
+	Output* out = new RegressionMSE();
+	Optimizer* opt = new SGD(0.01);
 
 	net.add(l1);
 	net.add(l2);
