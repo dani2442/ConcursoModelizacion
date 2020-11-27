@@ -82,3 +82,20 @@ def es_conteo_valido(mensaje, conteo):
     firmado = firmar_mensaje(mensaje, conteo)
     conteo_firmado = conteos_mensaje(firmado, conteo.keys())
     return conteo == conteo_firmado
+
+def calcular_error(mensaje,conteo):
+    firmado=firmar_mensaje(mensaje,conteo)
+    conteo_firmado=conteos_mensaje(firmado,conteo.keys())
+    return sum(np.square(dicc_to_array(conteo_firmado)-dicc_to_array(conteo)))
+
+def calcular_error2(mensaje,conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
+    return calcular_error(mensaje,array_to_dicc(conteo,letras))
+
+def dicc_to_array(conteo):
+    return np.array(list(conteo.values()))
+
+def array_to_dicc(conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
+    dicc={}
+    for i,letter in enumerate(letras):
+        dicc[letter]=conteo[i]
+    return dicc

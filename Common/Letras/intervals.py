@@ -38,6 +38,6 @@ def reduccion_intervalos(mensaje,letras="abcdefghijklmnñopqrstuvwxyz"):
             intervals+=[[kappa[j]+new_minimum[j],kappa[j]+new_maximum[j]]]
     return intervals
 
-print("\nIntervalo previo: ")
-sol=reduccion_intervalos(mensaje_global)
-print("\nSolucion Reduccion: \n"+str(sol))
+#print("\nIntervalo previo: ")
+#sol=reduccion_intervalos(mensaje_global,"b")
+#print("\nSolucion Reduccion: \n"+str(sol))
