@@ -1,4 +1,5 @@
 import numpy as np
 
-arr = np.array([[1, 2, 3]])
-print(arr.shape)
+arr = np.zeros((3,3))
+arr[0,1]=3
+print(arr)
