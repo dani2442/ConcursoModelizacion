@@ -18,18 +18,19 @@ def example1(mensaje):
     min_val=100000
     for i in range(len(y)):
         for j in range(len(x)):
-            Z[i,j]=calcular_error2(mensaje,[y[i],x[j]],"ab")
+            Z[i,j]=norm2(calcular_error2(mensaje,[y[i],x[j]],"ab"))
             if(Z[i,j]<min_val):
                 if(Z[i,j]==0):
                     print("[{}, {}]".format(x[j],y[i]))
                 x_min=x[j]
                 y_min=y[i]
                 min_val=Z[i,j]
-    ax.scatter([x_min],[y_min],[min_val],c="r",s=100)
-    #ax.plot_wireframe(X,Y,Z)
-    ax.plot_surface(X,Y,Z)
-    ax.set_xlabel('b')
-    ax.set_ylabel('a')
+    
+    ax.plot_wireframe(X,Y,Z,zorder=2)
+    ax.scatter([x_min],[y_min],[min_val+0.5],c="r",s=100,zorder=1)
+    #ax.plot_surface(X,Y,Z,zorder=2)
+    ax.set_xlabel('\'b\'')
+    ax.set_ylabel('\'a\'')
     ax.set_zlabel('error')
     plt.show()
             

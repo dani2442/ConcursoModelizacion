@@ -86,16 +86,28 @@ def es_conteo_valido(mensaje, conteo):
 def calcular_error(mensaje,conteo):
     firmado=firmar_mensaje(mensaje,conteo)
     conteo_firmado=conteos_mensaje(firmado,conteo.keys())
-    return sum(np.square(dicc_to_array(conteo_firmado)-dicc_to_array(conteo)))
+    return dicc_to_array(conteo_firmado)-dicc_to_array(conteo)
 
 def calcular_error2(mensaje,conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
     return calcular_error(mensaje,array_to_dicc(conteo,letras))
 
+def norm(x):
+    return np.sqrt(norm2(x))
+
+def norm2(x):
+    return sum(np.square(x))
+
 def dicc_to_array(conteo):
     return np.array(list(conteo.values()))
+
+def vec_to_mat(vec,i=0):
+    if i==0: return vec.reshape((-1,1))
+    else: return vec.reshape((1,-1))
+
 
 def array_to_dicc(conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
     dicc={}
     for i,letter in enumerate(letras):
         dicc[letter]=conteo[i]
     return dicc
+
