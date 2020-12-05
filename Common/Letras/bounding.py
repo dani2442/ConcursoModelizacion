@@ -11,4 +11,4 @@ def cota(letras="abcdefghijklmnñopqrstuvwxyz"):
                 maximum[j]=vec[j]
     return maximum,minimum
 
-#print(cota())
+print(cota())
