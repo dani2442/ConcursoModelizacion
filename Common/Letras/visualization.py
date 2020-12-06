@@ -33,6 +33,8 @@ def example1(mensaje):
     ax.set_ylabel('\'a\'')
     ax.set_zlabel('error')
     plt.show()
+
             
 
 example1(mensaje_global)
+print(norm2(calcular_error2(mensaje_global,[20,20],"ab")))
