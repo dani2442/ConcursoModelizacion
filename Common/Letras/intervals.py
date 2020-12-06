@@ -39,5 +39,5 @@ def reduccion_intervalos(mensaje,letras="abcdefghijklmnñopqrstuvwxyz"):
     return intervals
 
 #print("\nIntervalo previo: ")
-#sol=reduccion_intervalos(mensaje_global,"b")
+#sol=reduccion_intervalos(mensaje_global,"abcdefghijklmnñopqrstuvwxyz")
 #print("\nSolucion Reduccion: \n"+str(sol))

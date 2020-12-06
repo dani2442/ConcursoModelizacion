@@ -37,4 +37,3 @@ def example1(mensaje):
             
 
 example1(mensaje_global)
-print(norm2(calcular_error2(mensaje_global,[20,20],"ab")))
