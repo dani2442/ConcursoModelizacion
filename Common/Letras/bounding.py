@@ -1,7 +1,8 @@
 from mykernel import conteo_numero
 
 def cota(letras="abcdefghijklmnñopqrstuvwxyz"):
-    minimum,maximum=conteo_numero(0,letras),conteo_numero(0,letras)
+    minimum=conteo_numero(0,letras)
+    maximum=minimum
     for i in range(1000000):
         vec=conteo_numero(i,letras)
         for j in vec:
