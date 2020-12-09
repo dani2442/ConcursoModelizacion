@@ -82,8 +82,8 @@ def firmar_mensaje(mensaje, conteo):
         postdata[-1] = "y " + postdata[-1]
     return mensaje + " En este mensaje aparece " + ", ".join(postdata)
 
-# Conteo mensaje kappa + sum(conteo)
 def conteo_mensaje_f_nf(kappa,conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
+    """ Conteo mensaje kappa + sum(conteo) """
     conteo_firmado=np.array(kappa)
     for i in range(len(letras)):
         conteo_firmado+=conteo_numero2(conteo[i],letras)
