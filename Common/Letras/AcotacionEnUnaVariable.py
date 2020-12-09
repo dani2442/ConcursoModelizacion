@@ -1,6 +1,7 @@
 from mykernel import *
 from math import log
 
+#Calcula la cota n^m_\sigma(letra)
 def n(letra,m):
     if(m==0):
         return 0
@@ -44,12 +45,14 @@ def n(letra,m):
                 min=compara
         return (max-min)+n0
     
+#una lista con los n^m de las letras en el string letras
 def cota(m=6, letras='abcdefghijklmnñopqrstuvwxyz'):
     out=[]
     for i in letras:
         out.append((i,n(i,m)))
     return out
 
+#Devuelve la postdata de mensaje usando la letra indicada
 def resolver(mensaje, letra):
     n0=firmar_mensaje_fija(estandarizar_mensaje(mensaje),'e').count(letra)
     n1=n0+n(letra, int(log(n0,10)+1) )
@@ -61,6 +64,7 @@ def resolver(mensaje, letra):
             return f"En este mensaje aparece {n0+i} ve{fin} la letra e"
     return "No hay solucion"
 
+#Usado para pruebas
 def resolver2(n0, letra):
     n1=n0+n(letra, int(log(n0,10)+1) )
     cota=n(letra,int(log(n1,10)+1))
