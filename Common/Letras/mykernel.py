@@ -1,4 +1,5 @@
 import numpy as np
+
 def numero_a_letras(n):
     """Dado un entero, devuelve un string con su nombre en castellano"""
     especiales = {0: 'cero', 10: 'diez', 11: 'once', 12: 'doce', 13: 'trece', 14: 'catorce', 15: 'quince', 20: 'veinte', 100: 'cien', 1000: 'mil'}
@@ -39,9 +40,11 @@ def conteos_mensaje(mensaje, letras="abcdefghijklmnñopqrstuvwxyz"):
     return {x: mensaje.count(x) for x in letras}
 
 def conteos_mensaje2(mensaje,letras="abcdefghijklmnñopqrstuvwxyz"):
+    """Convierte el array de conteos_mensaje en un np array"""
     return np.array(list(conteos_mensaje(mensaje,letras).values()))
 
 def conteo_numero(numero,letras="abcdefghijklmnñopqrstuvwxyz"):
+    """Contabiliza el final de la palabra ve(z/ces) que como se indico en el documento es no fija"""
     dicc=conteos_mensaje(numero_a_letras(numero),letras)
     if numero==1:
         if 'z' in letras:
@@ -56,9 +59,11 @@ def conteo_numero(numero,letras="abcdefghijklmnñopqrstuvwxyz"):
     return dicc
 
 def conteo_numero2(numero,letras="abcdefghijklmnñopqrstuvwxyz"):
+    """Convierte el array de conteo_numero en un np array"""
     return np.array(list(conteo_numero(numero,letras).values()))
 
 def firmar_mensaje_fija(mensaje,letras="abcdefghijklmnñopqrstuvwxyz"):
+    """Devuelve la postdata sin considerar las partes variables: numeros y final de vez/ces"""
     postdata = []
     for x in range(len(letras)):
         vez = "ve"
@@ -103,15 +108,18 @@ def calcular_error_kappa(kappa,conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
 
 
 def norm(x):
+    """Devuelve la norma del np array x"""
     return np.sqrt(norm2(x))
 
 def norm2(x):
+    """Funcion auxiliar"""
     return sum(np.square(x))
 
 def dicc_to_array(conteo):
     return np.array(list(conteo.values()))
 
 def vec_to_mat(vec,i=0):
+    """Convierte un np array en un vector en forma matricial (si i=0 traspuesta) para poder operar con ella"""
     if i==0: return vec.reshape((-1,1))
     else: return vec.reshape((1,-1))
 
