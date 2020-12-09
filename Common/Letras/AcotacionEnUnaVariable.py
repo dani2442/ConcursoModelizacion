@@ -60,3 +60,13 @@ def resolver(mensaje, letra):
             if(n0+i==1):fin='z'
             return f"En este mensaje aparece {n0+i} ve{fin} la letra e"
     return "No hay solucion"
+
+def resolver2(n0, letra):
+    n1=n0+n(letra, int(log(n0,10)+1) )
+    cota=n(letra,int(log(n1,10)+1))
+    for i in range(cota+1):
+        if(-i+conteo_numero(n0+i)[letra]==0):
+            fin='ces'
+            if(n0+i==1):fin='z'
+            return n0+i+1
+    return 0
