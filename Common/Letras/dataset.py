@@ -13,7 +13,7 @@ def create_dataset(size=100):
     letras="abcdefghijklmnñopqrstuvwxyz"
     with open("dataset.csv","w") as f:
         for _ in range(size):
-            sol=np.random.randint(405,900000,len(letras))
+            sol=np.random.randint(405,900,len(letras))
             numeros=np.zeros(len(letras),dtype=int)
             for i in range(len(letras)):
                 numeros+=conteo_numero2(sol[i],letras)
