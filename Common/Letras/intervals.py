@@ -5,8 +5,8 @@ maximum_global={'a': 10, 'b': 0, 'c': 13, 'd': 4, 'e': 15, 'f': 0, 'g': 0, 'h': 
 minimum_global= {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0, 'k': 0, 'l': 0, 'm': 0, 'n': 0, 'ñ': 0, 'o': 0, 'p': 0, 'q': 0, 'r': 0, 's': 0, 't': 0, 'u': 0, 'v': 0, 'w': 0, 'x': 0, 'y': 0, 'z': 0}
 
 mensaje_global="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-#mensaje_global=""
 
+#Funcion auxiliar que calcula el maximo y minimo f en un intervalo
 def calculate_maximum_minimum(a,b,letras="abcdefghijklmnñopqrstuvwxyz"):
     minimum,maximum=[999]*len(letras),[-1]*len(letras)
     for i in range(a,b+1):
@@ -18,7 +18,7 @@ def calculate_maximum_minimum(a,b,letras="abcdefghijklmnñopqrstuvwxyz"):
                 maximum[j]=vec[j]
     return np.array(maximum),np.array(minimum)
 
-
+#Acota los intervalos en los que puede haber soluciones como se indica en el apartado 2.2
 def reduccion_intervalos(mensaje,letras="abcdefghijklmnñopqrstuvwxyz"):
     longitud=len(letras)
     kappa=conteos_mensaje2(firmar_mensaje_fija(mensaje,letras),letras)
@@ -37,7 +37,3 @@ def reduccion_intervalos(mensaje,letras="abcdefghijklmnñopqrstuvwxyz"):
         for j in range(longitud):
             intervals+=[[kappa[j]+new_minimum[j],kappa[j]+new_maximum[j]]]
     return intervals
-
-#print("\nIntervalo previo: ")
-#sol=reduccion_intervalos(mensaje_global,"abcdefghijklmnñopqrstuvwxyz")
-#print("\nSolucion Reduccion: \n"+str(sol))
