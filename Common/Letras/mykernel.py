@@ -77,6 +77,13 @@ def firmar_mensaje(mensaje, conteo):
         postdata[-1] = "y " + postdata[-1]
     return mensaje + " En este mensaje aparece " + ", ".join(postdata)
 
+# Conteo mensaje kappa + sum(conteo)
+def conteo_mensaje_f_nf(kappa,conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
+    conteo_firmado=np.array(kappa)
+    for i in range(len(letras)):
+        conteo_firmado+=conteo_numero2(conteo[i],letras)
+    return conteo_firmado
+
 def es_conteo_valido(mensaje, conteo):
     """Dado un mensaje y un conteo, decide si el conteo coincide con el mensaje firmado"""
     firmado = firmar_mensaje(mensaje, conteo)
@@ -90,6 +97,10 @@ def calcular_error(mensaje,conteo):
 
 def calcular_error2(mensaje,conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
     return calcular_error(mensaje,array_to_dicc(conteo,letras))
+
+def calcular_error_kappa(kappa,conteo,letras="abcdefghijklmnñopqrstuvwxyz"):
+    return conteo_mensaje_f_nf(kappa,conteo,letras)-np.array(conteo)
+
 
 def norm(x):
     return np.sqrt(norm2(x))

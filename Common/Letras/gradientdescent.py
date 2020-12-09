@@ -1,26 +1,41 @@
-from mykernel import *
+import mykernel
+import numpy as np
 def derivative1(p,letras="abcdefghijklmnñopqrstuvwxyz"):
-    return conteo_numero2(p+1,letras)-conteo_numero2(p,letras)
+    return mykernel.conteo_numero2(p+1,letras)-mykernel.conteo_numero2(p,letras)
 
 def derivative2(p,letras="abcdefghijklmnñopqrstuvwxyz"):
-    if p==0: return derivative1(p)
-    else: return (conteo_numero2(p+1,letras)-conteo_numero2(p-1,letras))/2
+    if p==0: return derivative1(p,letras)
+    else: return (mykernel.conteo_numero2(p+1,letras)-mykernel.conteo_numero2(p-1,letras))/2
 
 class LetterDescent(object):
-	def __init__(self,mensaje):
-		self.letras=""
-		self.mensaje=mensaje
+	def __init__(self,letras="abcdefghijklmnñopqrstuvwxyz"):
+		self.letras=letras
 		self.error=0
 		self.output=float(0)
 		self.P=0
 		self.dP=0
-		self.alpha=0.6
+		self.alpha=0.5
+		self.acum1=[]
+		self.acum2=[]
+		self.acumb=True
         
+	def set_message(self,mensaje):
+		self.mensaje=mensaje
+		self.kappa=mykernel.conteos_mensaje2(mykernel.firmar_mensaje_fija(mensaje,self.letras),self.letras)
 
-	def forward(self):
-		self.error=vec_to_mat(calcular_error2(self.mensaje,self.P.astype(int),self.letras))
-		self.output=norm2(self.error)
-		print(self.output)
+	def set_messagefixed(self,kappa):
+		self.kappa=kappa
+
+	def forward(self,b=False):
+		self.error=mykernel.vec_to_mat(mykernel.calcular_error_kappa(self.kappa,self.P.astype(int),self.letras))
+		self.output=mykernel.norm2(self.error)
+		if b: 
+			#print(self.output)
+			#print(self.P)
+			pass
+		if self.acumb:
+			self.acum1+=[str(self.P)]
+			self.acum2+=[int(self.output)]
 		return self.output
 
 	def backward(self):
@@ -32,22 +47,28 @@ class LetterDescent(object):
 
 	def update(self):
 		self.P-=self.alpha*np.concatenate(self.dP)
-		print(self.P)
+		#print(self.P)
 
-	def train(self,iter=20,letras="abcdefghijklmnñopqrstuvwxyz",p=None):
-		self.letras=letras
-		if p==None: self.P=np.array([20]*len(letras),dtype=float) #self.P=[39,4]
+	def train(self,iter=100,p=None):
+		#if p==None: self.P=np.array(self.kappa,dtype=float) #self.P=[39,4]
+		if p==None: self.P=np.ones(len(self.kappa),dtype=float)
 		else: self.P=p
 
-		for _ in range(iter):
-			self.forward()
+		for i in range(iter):
+			self.forward(i%10==0)
 			self.backward()
 			self.update()
 
-		print(self.P)
+		#print(self.P)
+		print(self.acum1)
+		print(self.acum2)
+	
+	def get_output(self):
+		return self.P.astype(int)
 
 mensaje_global="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-model=LetterDescent(mensaje_global)
-model.train(letras="ab")
+model=LetterDescent(letras="ab")
+model.set_message(mensaje_global)
+model.train()
 
 

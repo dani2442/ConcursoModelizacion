@@ -8,7 +8,7 @@ def array_to_string(arr):
         s+=str(i)+","
     return s
 
-def create_dataset(size=10000):
+def create_dataset(size=100):
     np.random.seed(1)
     letras="abcdefghijklmnñopqrstuvwxyz"
     with open("dataset.csv","w") as f:
@@ -32,5 +32,5 @@ def load_dataset(path="dataset.csv"):
     return dataset
 
 
-create_dataset()
-dataset=load_dataset()
+#create_dataset()
+#dataset=load_dataset()
